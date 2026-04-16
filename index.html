@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aditya Sharma – Game Developer. Unity & Unreal Engine. Immersive gameplay experiences, 3D horror games, and player-driven systems." />
+  <title>Aditya Sharma | Game Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== PARTICLE CANVAS ===== -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ===== CUSTOM CURSOR ===== -->
+  <div id="cursor"></div>
+  <div id="cursorTrail"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">[</span>AS<span class="logo-bracket">]</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link" data-section="about">About</a>
+        <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+        <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+        <a href="#achievements" class="nav-link" data-section="achievements">Achievements</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        <a href="#resume" class="nav-link nav-resume-link" data-section="resume">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Resume
+        </a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="mobileMenu">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#achievements" class="mobile-link">Achievements</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="#resume" class="mobile-link">📄 Resume</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="hero" class="hero-section">
+    <!-- Background image -->
+    <div class="hero-bg">
+      <img src="shadowwalker_hero.png" alt="ShadowWalker Horror Environment" class="hero-bg-img" />
+      <div class="hero-bg-overlay"></div>
+      <div class="hero-scan-lines"></div>
+    </div>
+
+    <!-- Left content -->
+    <div class="hero-content">
+      <div class="hero-tag reveal-up">
+        <span class="tag-dot"></span>
+        <span>Available for Opportunities</span>
+      </div>
+      <h1 class="hero-name reveal-up delay-1">
+        Aditya<br /><span class="name-accent">Sharma</span>
+      </h1>
+      <div class="hero-role reveal-up delay-2">
+        <span class="role-prefix">//</span>
+        <span class="role-text" id="typingRole">Game Developer</span>
+        <span class="role-cursor">|</span>
+      </div>
+      <p class="hero-tagline reveal-up delay-3">
+        I design immersive gameplay experiences using Unity and Unreal Engine, focusing on gameplay mechanics, environments, and player-driven systems.
+      </p>
+      <div class="hero-btns reveal-up delay-4">
+        <a href="#projects" class="btn btn-primary" id="heroViewProjects">
+          <span class="btn-text">View Projects</span>
+          <span class="btn-icon">→</span>
+        </a>
+        <a href="https://github.com/aditya-242006" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" id="heroGithub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="resume2025.docx" download="Aditya_Sharma_Resume_2025.docx" class="btn btn-resume" id="heroResume">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Resume
+        </a>
+      </div>
+      <div class="hero-stats reveal-up delay-5">
+        <div class="stat-item">
+          <span class="stat-num">3rd</span>
+          <span class="stat-label">Year Student</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">2+</span>
+          <span class="stat-label">Games Built</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Tools Mastered</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right side: image with floating particles (handled by canvas) -->
+    <div class="hero-visual reveal-right delay-2">
+      <a class="hero-img-wrapper" href="https://github.com/aditya-242006/ShadowWalkerFullGame" target="_blank" rel="noopener noreferrer" title="View ShadowWalker on GitHub" style="display:block;text-decoration:none;">
+        <div class="hero-img-glow"></div>
+        <img src="shadowwalker_hero.png" alt="ShadowWalker Game Scene" class="hero-game-img" />
+        <div class="hero-img-border"></div>
+        <div class="hero-img-tag">
+          <span class="img-tag-dot"></span>
+          <span>ShadowWalker — 3D Horror</span>
+        </div>
+        <div class="hero-img-corner tl"></div>
+        <div class="hero-img-corner tr"></div>
+        <div class="hero-img-corner bl"></div>
+        <div class="hero-img-corner br"></div>
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Left: Image -->
+        <div class="about-visual reveal-left">
+          <div class="about-img-frame">
+            <img src="about_workspace.png" alt="Game Developer Workspace" class="about-img" />
+            <div class="about-img-overlay"></div>
+            <div class="about-img-badge">
+              <span>🎮</span>
+              <span>Game Dev</span>
+            </div>
+          </div>
+          <!-- Floating tech tags -->
+          <div class="tech-float tf-unity">Unity</div>
+          <div class="tech-float tf-unreal">Unreal</div>
+          <div class="tech-float tf-blender">Blender</div>
+        </div>
+
+        <!-- Right: Text -->
+        <div class="about-text reveal-right">
+          <div class="section-eyebrow">// 01 — About Me</div>
+          <h2 class="section-title">Crafting <span class="accent-text">Digital Worlds</span></h2>
+          <p class="about-para">
+            I am a <strong>3rd-year Game Development student</strong> with a strong focus on gameplay programming and design.
+          </p>
+          <p class="about-para">
+            I have developed projects including a <span class="highlight-text">3D horror game</span> and a <span class="highlight-text">2D zombie shooter</span>. I am currently exploring advanced concepts like 3D and open-world combat systems.
+          </p>
+          <p class="about-para">
+            I work with <strong>Unity, Unreal Engine, Blender, Substance Painter,</strong> and <strong>Photoshop</strong>. My goal is to become a Game Designer and Programmer.
+          </p>
+          <div class="about-tools">
+            <div class="tool-chip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+              Unity
+            </div>
+            <div class="tool-chip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 22,20 2,20"/></svg>
+              Unreal Engine
+            </div>
+            <div class="tool-chip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="3"/></svg>
+              C#
+            </div>
+            <div class="tool-chip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              Blender
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section id="projects" class="section projects-section">
+    <div class="container">
+      <div class="section-head reveal-up">
+        <div class="section-eyebrow">// 02 — Projects</div>
+        <h2 class="section-title">Built <span class="accent-text">Worlds_</span></h2>
+        <p class="section-sub">Click any project to explore full details</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1: ShadowWalker -->
+        <div class="project-card reveal-up" id="card-shadowwalker" onclick="openProjectModal('shadowwalker')">
+          <div class="card-img-wrapper">
+            <!-- ShadowWalker auto slideshow -->
+            <div class="sw-slideshow">
+              <div class="sw-slide sw-slide-0"></div>
+              <div class="sw-slide sw-slide-1"></div>
+              <div class="sw-slide sw-slide-2"></div>
+              <div class="sw-slide sw-slide-3"></div>
+              <div class="sw-slide sw-slide-4"></div>
+            </div>
+            <div class="card-img-overlay"></div>
+            <div class="card-badge horror">3D Horror Game</div>
+            <!-- slide dots -->
+            <div class="sw-card-dots">
+              <span class="sw-cdot" data-idx="0"></span>
+              <span class="sw-cdot" data-idx="1"></span>
+              <span class="sw-cdot" data-idx="2"></span>
+              <span class="sw-cdot" data-idx="3"></span>
+              <span class="sw-cdot" data-idx="4"></span>
+            </div>
+            <div class="card-hover-cta">
+              <span>Explore →</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-engine">Unity</span>
+              <span class="card-role">Solo Developer</span>
+            </div>
+            <h3 class="card-title">ShadowWalker</h3>
+            <p class="card-desc">A maze-based horror escape game where light damages the player and darkness heals them.</p>
+            <div class="card-tags">
+              <span>Light vs Dark</span>
+              <span>Enemy AI</span>
+              <span>Dynamic Maze</span>
+            </div>
+            <div class="card-actions" onclick="event.stopPropagation()">
+              <button class="card-btn-primary" onclick="openProjectModal('shadowwalker')">View Details</button>
+              <a href="https://github.com/aditya-242006/ShadowWalkerFullGame" target="_blank" rel="noopener noreferrer" class="card-btn-ghost">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Zombie Shooter -->
+        <div class="project-card reveal-up delay-1" id="card-zombie" onclick="openProjectModal('zombie')">
+          <div class="card-img-wrapper">
+            <!-- Zombie Shooter auto slideshow -->
+            <div class="zs-slideshow">
+              <div class="zs-slide zs-slide-0"></div>
+              <div class="zs-slide zs-slide-1"></div>
+              <div class="zs-slide zs-slide-2"></div>
+              <div class="zs-slide zs-slide-3"></div>
+              <div class="zs-slide zs-slide-4"></div>
+              <div class="zs-slide zs-slide-5"></div>
+            </div>
+            <div class="card-img-overlay"></div>
+            <div class="card-badge survival">2D Survival Game</div>
+            <!-- slide dots -->
+            <div class="zs-card-dots">
+              <span class="zs-cdot"></span>
+              <span class="zs-cdot"></span>
+              <span class="zs-cdot"></span>
+              <span class="zs-cdot"></span>
+              <span class="zs-cdot"></span>
+              <span class="zs-cdot"></span>
+            </div>
+            <div class="card-hover-cta">
+              <span>Explore →</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-engine">Unity</span>
+              <span class="card-role">Solo Developer</span>
+            </div>
+            <h3 class="card-title">Zombie Shooter</h3>
+            <p class="card-desc">A wave-based zombie survival game where players fight enemies and progress through levels.</p>
+            <div class="card-tags">
+              <span>Wave System</span>
+              <span>Enemy AI</span>
+              <span>Poison Attack</span>
+            </div>
+            <div class="card-actions" onclick="event.stopPropagation()">
+              <button class="card-btn-primary" onclick="openProjectModal('zombie')">View Details</button>
+              <a href="https://github.com/aditya-242006/zombieshooter" target="_blank" rel="noopener noreferrer" class="card-btn-ghost">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+      <div class="section-head reveal-up">
+        <div class="section-eyebrow">// 03 — Skills</div>
+        <h2 class="section-title">Loaded <span class="accent-text">Arsenal_</span></h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <!-- Programming Languages -->
+        <div class="skill-card reveal-up">
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>Programming</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-pill">
+              <span class="skill-letter">C</span>
+              <span>C Language</span>
+            </div>
+            <div class="skill-pill">
+              <span class="skill-letter">C++</span>
+              <span>C++</span>
+            </div>
+            <div class="skill-pill active">
+              <span class="skill-letter">C#</span>
+              <span>C Sharp</span>
+            </div>
+            <div class="skill-pill">
+              <span class="skill-letter">JS</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game Engines -->
+        <div class="skill-card reveal-up delay-1">
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <h3>Game Engines</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-pill active">
+              <span class="skill-letter">U</span>
+              <span>Unity</span>
+            </div>
+            <div class="skill-pill">
+              <span class="skill-letter">UE</span>
+              <span>Unreal Engine</span>
+            </div>
+          </div>
+          <div class="engine-bars">
+            <div class="engine-bar-item">
+              <div class="eb-label"><span>Unity</span><span>Advanced</span></div>
+              <div class="eb-track"><div class="eb-fill" style="width:88%"></div></div>
+            </div>
+            <div class="engine-bar-item">
+              <div class="eb-label"><span>Unreal Engine</span><span>Intermediate</span></div>
+              <div class="eb-track"><div class="eb-fill" style="width:65%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game Development -->
+        <div class="skill-card reveal-up delay-2">
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01M8 12h.01M16 12h.01M10 10v4M14 10v4"/></svg>
+            </div>
+            <h3>Game Development</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-pill active">
+              <span class="skill-letter">GP</span>
+              <span>Gameplay Programming</span>
+            </div>
+            <div class="skill-pill">
+              <span class="skill-letter">UI</span>
+              <span>UI Systems</span>
+            </div>
+            <div class="skill-pill">
+              <span class="skill-letter">ED</span>
+              <span>Environment Design</span>
+            </div>
+            <div class="skill-pill">
+              <span class="skill-letter">GM</span>
+              <span>Game Mechanics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-card reveal-up delay-3">
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3>Tools & Software</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-pill">
+              <span class="skill-letter">BL</span>
+              <span>Blender</span>
+            </div>
+            <div class="skill-pill active">
+              <span class="skill-letter">PS</span>
+              <span>Photoshop</span>
+            </div>
+            <div class="skill-pill">
+              <span class="skill-letter">SP</span>
+              <span>Substance Painter</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESUME SECTION ===== -->
+  <section id="resume" class="section resume-section">
+    <div class="container">
+      <div class="section-head reveal-up">
+        <div class="section-eyebrow">// 04 — Resume</div>
+        <h2 class="section-title">My <span class="accent-text">Resume_</span></h2>
+        <p class="section-sub">Download my full resume or preview the highlights below.</p>
+      </div>
+
+      <div class="resume-panel reveal-up">
+
+        <!-- Left: Resume Preview Card -->
+        <div class="resume-preview-col">
+          <div class="resume-doc-card">
+            <!-- Fake document header -->
+            <div class="rdoc-header">
+              <div class="rdoc-dots">
+                <span class="rdoc-dot red"></span>
+                <span class="rdoc-dot yellow"></span>
+                <span class="rdoc-dot green"></span>
+              </div>
+              <span class="rdoc-filename">resume2025.docx</span>
+            </div>
+            <!-- Document body preview -->
+            <div class="rdoc-body">
+              <div class="rdoc-name">Aditya Sharma</div>
+              <div class="rdoc-title">Game Developer · Unity · Unreal Engine</div>
+              <div class="rdoc-contact">
+                <span>📧 sadityasharma989@gmail.com</span>
+                <span>🔗 github.com/aditya-242006</span>
+              </div>
+              <div class="rdoc-divider"></div>
+              <div class="rdoc-section-title">EXPERIENCE</div>
+              <div class="rdoc-lines">
+                <div class="rdoc-line w-90"></div>
+                <div class="rdoc-line w-75"></div>
+                <div class="rdoc-line w-80"></div>
+              </div>
+              <div class="rdoc-section-title">PROJECTS</div>
+              <div class="rdoc-lines">
+                <div class="rdoc-line w-95"></div>
+                <div class="rdoc-line w-70"></div>
+                <div class="rdoc-line w-85"></div>
+                <div class="rdoc-line w-60"></div>
+              </div>
+              <div class="rdoc-section-title">SKILLS</div>
+              <div class="rdoc-chips">
+                <span class="rdoc-chip">Unity</span>
+                <span class="rdoc-chip">C#</span>
+                <span class="rdoc-chip">Unreal</span>
+                <span class="rdoc-chip">Blender</span>
+                <span class="rdoc-chip">C++</span>
+              </div>
+              <div class="rdoc-scan-overlay"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Info + Download -->
+        <div class="resume-info-col">
+          <div class="resume-info-header">
+            <div class="resume-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div>
+              <h3>Aditya Sharma</h3>
+              <span>Game Developer — 2026</span>
+            </div>
+          </div>
+
+          <div class="resume-highlights">
+            <div class="rh-item">
+              <span class="rh-dot blue"></span>
+              <div>
+                <span class="rh-label">Education</span>
+                <span class="rh-value">B.Sc. Game Development — 3rd Year</span>
+              </div>
+            </div>
+            <div class="rh-item">
+              <span class="rh-dot purple"></span>
+              <div>
+                <span class="rh-label">Focus</span>
+                <span class="rh-value">Gameplay Programming &amp; 3D Design</span>
+              </div>
+            </div>
+            <div class="rh-item">
+              <span class="rh-dot teal"></span>
+              <div>
+                <span class="rh-label">Key Projects</span>
+                <span class="rh-value">ShadowWalker, Zombie Shooter</span>
+              </div>
+            </div>
+            <div class="rh-item">
+              <span class="rh-dot green"></span>
+              <div>
+                <span class="rh-label">Status</span>
+                <span class="rh-value">Available for internship &amp; roles</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="resume-file-meta">
+            <div class="rfm-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span>Word Format (DOCX)</span>
+            </div>
+            <div class="rfm-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Updated 2026</span>
+            </div>
+            <div class="rfm-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span>1 Page</span>
+            </div>
+          </div>
+
+          <div class="resume-actions">
+            <a href="resume2025.docx" download="Aditya_Sharma_Resume_2025.docx" class="btn btn-primary resume-dl-btn" id="resumeDownload">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Resume</span>
+            </a>
+            <a href="resume2025.docx" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" id="resumePreview">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              Preview
+            </a>
+          </div>
+
+          <p class="resume-note">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Place your <strong>resume2025.docx</strong> file in the <code>/portfolio</code> folder to enable download.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACHIEVEMENTS SECTION =====-->
+  <section id="achievements" class="section achievements-section">
+    <div class="container">
+      <div class="section-head reveal-up">
+        <div class="section-eyebrow">// 04 — Achievements</div>
+        <h2 class="section-title">Trophies <span class="accent-text">Earned_</span></h2>
+      </div>
+
+      <div class="achievements-row">
+        <div class="achievement-card reveal-up">
+          <div class="ach-icon-wrap">
+            <span class="ach-icon">🏆</span>
+            <div class="ach-glow"></div>
+          </div>
+          <div class="ach-content">
+            <div class="ach-badge unlocked">UNLOCKED</div>
+            <h3 class="ach-title">Game Jam Participant</h3>
+            <p class="ach-desc">Participated in a competitive game development hackathon — designed and shipped a playable game under tight time constraints.</p>
+          </div>
+          <div class="ach-corner"></div>
+        </div>
+
+        <div class="achievement-card reveal-up delay-1">
+          <div class="ach-icon-wrap">
+            <span class="ach-icon">🎖️</span>
+            <div class="ach-glow ach-glow-teal"></div>
+          </div>
+          <div class="ach-content">
+            <div class="ach-badge unlocked teal">EARNED</div>
+            <h3 class="ach-title">Game Jam Hackathon Certificate</h3>
+            <p class="ach-desc">Received an official certificate of participation and recognition for game design excellence in a 48-hour game jam hackathon.</p>
+          </div>
+          <div class="ach-corner"></div>
+        </div>
+
+        <div class="achievement-card reveal-up delay-2">
+          <div class="ach-icon-wrap">
+            <span class="ach-icon">🎮</span>
+            <div class="ach-glow ach-glow-purple"></div>
+          </div>
+          <div class="ach-content">
+            <div class="ach-badge unlocked purple">ACTIVE</div>
+            <h3 class="ach-title">Indie Game Developer</h3>
+            <p class="ach-desc">Building solo projects including ShadowWalker and Zombie Shooter — fully designed, programmed, and shipped by Aditya Sharma.</p>
+          </div>
+          <div class="ach-corner"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="section-head reveal-up">
+          <div class="section-eyebrow">// 05 — Contact</div>
+          <h2 class="section-title">Let's <span class="accent-text">Connect_</span></h2>
+          <p class="contact-sub">Open to internships, collaborations, and entry-level game development opportunities.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Links -->
+          <div class="contact-links reveal-left">
+            <a href="mailto:sadityasharma989@gmail.com" class="contact-card" id="contactEmail">
+              <div class="cc-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="cc-text">
+                <span class="cc-label">Email</span>
+                <span class="cc-value">sadityasharma989@gmail.com</span>
+              </div>
+              <span class="cc-arrow">→</span>
+            </a>
+
+            <a href="https://github.com/aditya-242006" target="_blank" rel="noopener noreferrer" class="contact-card" id="contactGithub">
+              <div class="cc-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </div>
+              <div class="cc-text">
+                <span class="cc-label">GitHub</span>
+                <span class="cc-value">github.com/aditya-242006</span>
+              </div>
+              <span class="cc-arrow">→</span>
+            </a>
+
+            <div class="contact-status">
+              <div class="status-pulse-dot"></div>
+              <span>Currently available for internship & freelance work</span>
+            </div>
+          </div>
+
+          <!-- CTA Block -->
+          <div class="contact-cta reveal-right">
+            <div class="cta-block">
+              <div class="cta-icon-large">🚀</div>
+              <h3>Ready to build something<br /><span class="accent-text">epic together?</span></h3>
+              <p>Whether it's a game prototype, a gameplay mechanic, or a full project — let's make it happen.</p>
+              <div class="cta-buttons">
+                <a href="mailto:sadityasharma989@gmail.com" class="btn btn-primary" id="ctaEmail">
+                  <span class="btn-text">Contact Me</span>
+                  <span class="btn-icon">→</span>
+                </a>
+                <a href="https://github.com/aditya-242006" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" id="ctaGithub">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  View GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <a href="#hero" class="footer-logo"><span class="logo-bracket">[</span>AS<span class="logo-bracket">]</span></a>
+          <p>Game Developer · Unity · Unreal Engine</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-right">
+          <span>© 2024 Aditya Sharma</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== PROJECT MODALS ===== -->
+
+  <!-- ShadowWalker Modal -->
+  <div class="modal-overlay" id="modal-shadowwalker" onclick="closeModal(event)">
+    <div class="modal-panel" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeProjectModal('shadowwalker')">✕</button>
+      <div class="modal-layout">
+        <div class="modal-visual">
+          <div class="modal-img-wrap shadowwalker-bg">
+            <div class="modal-img-overlay"></div>
+            <div class="modal-img-tag">ShadowWalker</div>
+          </div>
+          <div class="modal-tech-stack">
+            <span class="tech-tag">Unity</span>
+            <span class="tech-tag">C#</span>
+            <span class="tech-tag">3D Horror</span>
+            <span class="tech-tag">AI Pathfinding</span>
+          </div>
+        </div>
+        <div class="modal-info">
+          <div class="modal-header">
+            <div class="modal-badge horror">3D Horror Game</div>
+            <h2>ShadowWalker</h2>
+            <p class="modal-role">Role: <strong>Game Programmer (Solo)</strong> · Engine: <strong>Unity</strong></p>
+          </div>
+          <p class="modal-desc">A maze-based horror escape game where light damages the player and darkness heals them — a unique inversion of survival mechanics that creates intense tension.</p>
+          <div class="modal-features">
+            <h4>Key Features</h4>
+            <ul>
+              <li><span class="feat-icon">⚡</span> Light vs Dark mechanic — light damages, darkness heals</li>
+              <li><span class="feat-icon">🤖</span> Enemy AI with NPC chase & patrol system</li>
+              <li><span class="feat-icon">🌀</span> Dynamic maze with disappearing/shifting walls</li>
+              <li><span class="feat-icon">⚙️</span> Difficulty system — adaptive challenge scaling</li>
+            </ul>
+          </div>
+          <div class="modal-challenge">
+            <div class="challenge-block">
+              <h4>⚠️ Challenge</h4>
+              <p>Balancing survival mechanics — ensuring light/dark gameplay felt fair yet tense.</p>
+            </div>
+            <div class="challenge-block solution">
+              <h4>✅ Solution</h4>
+              <p>Adjusted healing/damage values per difficulty and tuned AI behavior for better gameplay balance through extensive playtesting.</p>
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button class="btn btn-primary" onclick="alert('Screenshots coming soon!')">View Screenshots</button>
+            <a href="https://github.com/aditya-242006/ShadowWalkerFullGame" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zombie Shooter Modal -->
+  <div class="modal-overlay" id="modal-zombie" onclick="closeModal(event)">
+    <div class="modal-panel" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeProjectModal('zombie')">✕</button>
+      <div class="modal-layout">
+        <div class="modal-visual">
+          <div class="modal-img-wrap zombie-bg">
+            <div class="modal-img-overlay"></div>
+            <div class="modal-img-tag">Zombie Shooter</div>
+          </div>
+          <div class="modal-tech-stack">
+            <span class="tech-tag">Unity</span>
+            <span class="tech-tag">C#</span>
+            <span class="tech-tag">2D Survival</span>
+            <span class="tech-tag">Wave System</span>
+          </div>
+        </div>
+        <div class="modal-info">
+          <div class="modal-header">
+            <div class="modal-badge survival">2D Survival Game</div>
+            <h2>Zombie Shooter</h2>
+            <p class="modal-role">Role: <strong>Game Programmer (Solo)</strong> · Engine: <strong>Unity</strong></p>
+          </div>
+          <p class="modal-desc">A wave-based zombie survival game where players must fight off increasingly dangerous hordes and strategically progress through levels with limited resources.</p>
+          <div class="modal-features">
+            <h4>Key Features</h4>
+            <ul>
+              <li><span class="feat-icon">🌊</span> Wave-based zombie spawning system</li>
+              <li><span class="feat-icon">🧠</span> Enemy AI follow & aggro system</li>
+              <li><span class="feat-icon">☠️</span> Poison attack mechanics</li>
+              <li><span class="feat-icon">🗝️</span> Key collection & progression system</li>
+            </ul>
+          </div>
+          <div class="modal-challenge">
+            <div class="challenge-block">
+              <h4>⚠️ Challenge</h4>
+              <p>Managing increasing wave difficulty while keeping gameplay accessible for new players.</p>
+            </div>
+            <div class="challenge-block solution">
+              <h4>✅ Solution</h4>
+              <p>Implemented progressive wave scaling with spawn rate curves and enemy health multipliers tied to wave number.</p>
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button class="btn btn-primary" onclick="alert('Screenshots coming soon!')">View Screenshots</button>
+            <a href="https://github.com/aditya-242006/zombieshooter" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FLOATING RESUME FAB ===== -->
+  <a href="resume2025.docx" download="Aditya_Sharma_Resume_2025.docx" class="resume-fab" id="resumeFab" title="Download Resume">
+    <div class="fab-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+    </div>
+    <span class="fab-label">Resume</span>
+    <div class="fab-ring"></div>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
