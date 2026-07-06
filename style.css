@@ -2281,3 +2281,150 @@ button {
   max-width: 800px;
   margin: 0 auto;
 }
+
+/* ===== CARD SLIDESHOW ANIMATIONS ===== */
+
+/* ShadowWalker Card Slideshow (5 Slides - 15s) */
+.sw-slideshow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sw-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: swCardFade 15s infinite;
+  transition: transform 0.6s ease;
+}
+
+/* Each slide is offset by 3s (15s / 5 slides) */
+.sw-slide-0 { background-image: url('sw_default.png'); animation-delay: 0s; }
+.sw-slide-1 { background-image: url('sw_slide1.png'); animation-delay: 3s; }
+.sw-slide-2 { background-image: url('sw_slide2.png'); animation-delay: 6s; }
+.sw-slide-3 { background-image: url('sw_slide3.png'); animation-delay: 9s; }
+.sw-slide-4 { background-image: url('sw_slide4.png'); animation-delay: 12s; }
+
+@keyframes swCardFade {
+  0%    { opacity: 0; transform: scale(1); }
+  4%    { opacity: 1; }
+  16%   { opacity: 1; transform: scale(1.04); }
+  20%   { opacity: 0; }
+  100%  { opacity: 0; transform: scale(1); }
+}
+
+.sw-card-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 3;
+}
+
+.sw-cdot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.sw-cdot:nth-child(1) { animation: swDot 15s infinite 0s; }
+.sw-cdot:nth-child(2) { animation: swDot 15s infinite 3s; }
+.sw-cdot:nth-child(3) { animation: swDot 15s infinite 6s; }
+.sw-cdot:nth-child(4) { animation: swDot 15s infinite 9s; }
+.sw-cdot:nth-child(5) { animation: swDot 15s infinite 12s; }
+
+@keyframes swDot {
+  0%    { background: var(--accent-gold); transform: scale(1.35); }
+  19%   { background: var(--accent-gold); transform: scale(1.35); }
+  20%   { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+  100%  { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+}
+
+/* Zombie Shooter Card Slideshow (6 Slides - 18s) */
+.zs-slideshow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.zs-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: zsCardFade 18s infinite;
+  transition: transform 0.6s ease;
+}
+
+/* Each slide is offset by 3s (18s / 6 slides) */
+.zs-slide-0 { background-image: url('urban_arena.png'); animation-delay: 0s; }
+.zs-slide-1 { background-image: url('sova_slide1.png'); animation-delay: 3s; }
+.zs-slide-2 { background-image: url('sova_slide2.png'); animation-delay: 6s; }
+.zs-slide-3 { background-image: url('sova_slide3.png'); animation-delay: 9s; }
+.zs-slide-4 { background-image: url('sova_slide4.png'); animation-delay: 12s; }
+.zs-slide-5 { background-image: url('sova_slide5.png'); animation-delay: 15s; }
+
+@keyframes zsCardFade {
+  0%      { opacity: 0; transform: scale(1); }
+  3.33%   { opacity: 1; }
+  13.33%  { opacity: 1; transform: scale(1.04); }
+  16.66%  { opacity: 0; }
+  100%    { opacity: 0; transform: scale(1); }
+}
+
+.zs-card-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 3;
+}
+
+.zs-cdot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.zs-cdot:nth-child(1) { animation: zsDot 18s infinite 0s; }
+.zs-cdot:nth-child(2) { animation: zsDot 18s infinite 3s; }
+.zs-cdot:nth-child(3) { animation: zsDot 18s infinite 6s; }
+.zs-cdot:nth-child(4) { animation: zsDot 18s infinite 9s; }
+.zs-cdot:nth-child(5) { animation: zsDot 18s infinite 12s; }
+.zs-cdot:nth-child(6) { animation: zsDot 18s infinite 15s; }
+
+@keyframes zsDot {
+  0%      { background: var(--accent-gold); transform: scale(1.35); }
+  15.66%  { background: var(--accent-gold); transform: scale(1.35); }
+  16.66%  { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+  100%    { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+}
+
+.project-card:hover .sw-slide,
+.project-card:hover .zs-slide {
+  animation-play-state: paused;
+  transform: scale(1.04);
+}
+
+.project-card:hover .sw-cdot,
+.project-card:hover .zs-cdot {
+  animation-play-state: paused;
+}
