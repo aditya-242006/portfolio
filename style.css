@@ -1673,6 +1673,7 @@ button {
   background-position: center;
   border: 1px solid var(--border-subtle);
   position: relative;
+  overflow: hidden;
 }
 
 .shadowwalker-bg { background-image: url('assets/shadowwalker_hero.png'); }
@@ -2434,13 +2435,17 @@ button {
 }
 
 .project-card:hover .sw-slide,
-.project-card:hover .zs-slide {
+.project-card:hover .zs-slide,
+.modal-panel:hover .sw-slide,
+.modal-panel:hover .zs-slide {
   animation-play-state: paused;
   transform: scale(1.04);
 }
 
 .project-card:hover .sw-cdot,
-.project-card:hover .zs-cdot {
+.project-card:hover .zs-cdot,
+.modal-panel:hover .sw-cdot,
+.modal-panel:hover .zs-cdot {
   animation-play-state: paused;
 }
 
