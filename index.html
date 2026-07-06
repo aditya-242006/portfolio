@@ -55,14 +55,15 @@
       <div class="hero-scan-lines"></div>
     </div>
 
-    <!-- Left content -->
-    <div class="hero-content">
+    <!-- Centered content -->
+    <div class="hero-content hero-content--centered">
+
       <div class="hero-tag reveal-up">
         <span class="tag-dot"></span>
         <span>Available for Opportunities</span>
       </div>
       <h1 class="hero-name reveal-up">
-        Aditya<br /><span class="name-accent">Sharma</span>
+        Aditya <span class="name-accent">Sharma</span>
       </h1>
       <div class="hero-role reveal-up">
         <span class="role-divider"></span>
@@ -103,42 +104,29 @@
       </div>
     </div>
 
-    <!-- Right side: Featured Project Visual -->
-    <div class="hero-visual reveal-right">
-      <a class="hero-img-wrapper" href="valkerya.html" title="Explore Valkerya Case Study" style="display:block;">
-        <div class="hero-img-corner tl"></div>
-        <div class="hero-img-corner tr"></div>
-        <div class="hero-img-corner bl"></div>
-        <div class="hero-img-corner br"></div>
-        <img src="assets/valkerya_hero.png" alt="VALKERYA Game Scene" class="hero-game-img" />
-        <div class="hero-img-border"></div>
-        <div class="hero-img-tag">
-          <span class="img-tag-dot"></span>
-          <span>VALKERYA — UE5 Project</span>
-        </div>
-      </a>
-    </div>
 
-    <!-- Scroll indicator -->
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
   </section>
 
   <!-- ===== ABOUT SECTION ===== -->
   <section id="about" class="section about-section">
     <div class="container">
       <div class="about-grid">
-        <!-- Left: Image -->
+        <!-- Left: Profile Photo -->
         <div class="about-visual reveal-left">
-          <div class="about-img-frame">
-            <img src="assets/about_workspace.png" alt="Game Developer Workspace" class="about-img" />
-            <div class="about-img-overlay"></div>
-            <div class="about-img-badge">
+          <div class="profile-photo-frame">
+            <div class="profile-ring-outer">
+              <div class="profile-ring-inner">
+                <img src="assets/profile.png" alt="Aditya Sharma" class="profile-photo" />
+              </div>
+            </div>
+            <div class="profile-glow"></div>
+            <div class="profile-badge">
               <span>🎮</span>
               <span>Game Dev</span>
             </div>
+            <div class="profile-dot dot-1"></div>
+            <div class="profile-dot dot-2"></div>
+            <div class="profile-dot dot-3"></div>
           </div>
         </div>
 
@@ -178,19 +166,30 @@
 
       <div class="projects-grid">
 
-        <!-- Project 1: Featured VALKERYA (Unreal Engine 5) -->
-        <div class="project-card featured-card reveal-up" id="card-valkerya" onclick="window.location.href='valkerya.html'">
+        <!-- Project 1: Featured VALKERYA (Unity) -->
+        <div class="project-card featured-card reveal-up" id="card-valkerya">
           <div class="card-img-wrapper">
-            <img src="assets/valkerya_hero.png" alt="VALKERYA Game Scene" class="card-img" />
+            <!-- Valkerya auto slideshow -->
+            <div class="vk-slideshow">
+              <div class="vk-slide vk-slide-0"></div>
+              <div class="vk-slide vk-slide-1"></div>
+              <div class="vk-slide vk-slide-2"></div>
+            </div>
             <div class="card-img-overlay"></div>
             <div class="card-badge featured-badge">Featured Project</div>
+            <!-- slide dots -->
+            <div class="vk-card-dots">
+              <span class="vk-cdot"></span>
+              <span class="vk-cdot"></span>
+              <span class="vk-cdot"></span>
+            </div>
             <div class="card-hover-cta">
               <span>Explore Case Study →</span>
             </div>
           </div>
           <div class="card-body">
             <div class="card-meta">
-              <span class="card-engine">Unreal Engine 5</span>
+              <span class="card-engine">Unity</span>
               <span class="card-role">Game Designer (Group)</span>
             </div>
             <h3 class="card-title">VALKERYA</h3>
@@ -203,6 +202,9 @@
             </div>
             <div class="card-actions" onclick="event.stopPropagation()">
               <button class="card-btn-primary" onclick="window.location.href='valkerya.html'">View Case Study</button>
+              <a href="https://github.com/aditya-242006/valkerya" target="_blank" rel="noopener noreferrer" class="card-btn-ghost">
+                GitHub
+              </a>
             </div>
           </div>
         </div>
@@ -342,16 +344,7 @@
             <div class="skill-pill active">Unity</div>
             <div class="skill-pill active">Unreal Engine 5</div>
           </div>
-          <div class="engine-bars">
-            <div class="engine-bar-item">
-              <div class="eb-label"><span>Unity</span><span>Advanced</span></div>
-              <div class="eb-track"><div class="eb-fill" style="width:88%"></div></div>
-            </div>
-            <div class="engine-bar-item">
-              <div class="eb-label"><span>Unreal Engine 5</span><span>Advanced</span></div>
-              <div class="eb-track"><div class="eb-fill" style="width:82%"></div></div>
-            </div>
-          </div>
+
         </div>
 
         <!-- Game Design specialties -->
@@ -477,7 +470,7 @@
               <span class="rh-dot"></span>
               <div>
                 <span class="rh-label">Key Projects</span>
-                <span class="rh-value">Valkerya (UE5), ShadowWalker, Zombie Shooter</span>
+                <span class="rh-value">Valkerya (Unity), ShadowWalker, Zombie Shooter</span>
               </div>
             </div>
             <div class="rh-item">
@@ -773,6 +766,10 @@
       </div>
     </div>
   </div>
+
+  <!-- ===== CUSTOM CURSOR ===== -->
+  <div id="cursorDot"></div>
+  <div id="cursorRing"></div>
 
   <script src="script.js"></script>
 </body>

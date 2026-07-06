@@ -4,34 +4,39 @@
    Inspired by Santa Monica Studio, Riot Games, and Naughty Dog
    ======================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 /* ===== CSS DESIGN SYSTEM VARIABLES ===== */
 :root {
-  --bg-primary: #0a0b0e;
-  --bg-secondary: #111216;
-  --bg-card: #16181e;
-  --bg-card-hover: #1c202a;
-  --bg-overlay: rgba(10, 11, 14, 0.92);
-  --bg-glass: rgba(17, 18, 22, 0.85);
+  --bg-primary: #0d1117;
+  --bg-secondary: #131920;
+  --bg-card: #161e27;
+  --bg-card-hover: #1c2736;
+  --bg-overlay: rgba(13, 17, 23, 0.93);
+  --bg-glass: rgba(19, 25, 32, 0.88);
 
-  --accent-gold: #c5a059;
-  --accent-gold-bright: #e5be75;
-  --accent-gold-dim: rgba(197, 160, 89, 0.15);
-  --accent-bronze: #8c7853;
-  
-  --border-subtle: rgba(197, 160, 89, 0.12);
-  --border-medium: rgba(197, 160, 89, 0.25);
-  --border-strong: rgba(197, 160, 89, 0.5);
+  /* Calm teal / soft cyan accent */
+  --accent-gold: #38bdf8;
+  --accent-gold-bright: #7dd3fc;
+  --accent-gold-dim: rgba(56, 189, 248, 0.12);
+  --accent-bronze: #0e7490;
 
-  --text-primary: #eae7e0;
-  --text-secondary: #a3a19b;
-  --text-muted: #62605b;
+  --border-subtle: rgba(56, 189, 248, 0.1);
+  --border-medium: rgba(56, 189, 248, 0.22);
+  --border-strong: rgba(56, 189, 248, 0.45);
+
+  --text-primary: #e2eaf4;
+  --text-secondary: #8fa5bc;
+  --text-muted: #4d6278;
   --text-white: #ffffff;
 
-  --font-display: 'Cinzel', serif;
-  --font-body: 'Outfit', sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  /* Teal glow */
+  --glow-color: rgba(56, 189, 248, 0.35);
+  --glow-strong: rgba(56, 189, 248, 0.6);
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
   --transition-smooth: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
   --transition-slow: 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -372,6 +377,7 @@ button {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-top: 100px;
   overflow: hidden;
   border-bottom: 1px solid var(--border-subtle);
@@ -411,8 +417,16 @@ button {
 .hero-content {
   position: relative;
   z-index: 10;
-  max-width: 600px;
-  margin-right: auto;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Centered variant for the new hero layout */
+.hero-content--centered {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-tag {
@@ -440,10 +454,10 @@ button {
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 4.8rem);
+  font-size: clamp(3rem, 6vw, 5.5rem);
   line-height: 1.05;
   font-weight: 900;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   color: var(--text-white);
   margin-bottom: 12px;
 }
@@ -455,21 +469,26 @@ button {
 
 .hero-role {
   font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: var(--accent-gold-bright);
   margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .hero-tagline {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   margin-bottom: 40px;
-  line-height: 1.7;
+  line-height: 1.75;
+  max-width: 580px;
 }
 
 .hero-btns {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1.2rem;
   margin-bottom: 50px;
 }
@@ -479,6 +498,7 @@ button {
   gap: 2.5rem;
   border-top: 1px solid var(--border-subtle);
   padding-top: 30px;
+  justify-content: center;
 }
 
 .stat-item {
@@ -506,23 +526,34 @@ button {
 }
 
 .hero-visual {
-  position: relative;
-  z-index: 10;
-  margin-left: auto;
-  max-width: 480px;
-  display: none; /* Layout simplification */
+  display: none;
 }
 
-@media (min-width: 1024px) {
-  .hero-visual {
-    display: block;
-  }
-  .hero-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-  }
+/* ===== HERO PROFILE PHOTO ===== */
+.hero-pfp {
+  margin-bottom: 28px;
+}
+
+.hero-pfp-ring {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-bright) 50%, var(--accent-bronze) 100%);
+  box-shadow: 0 0 0 4px rgba(56,189,248,0.1), 0 0 28px var(--glow-color), 0 8px 32px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.hero-pfp-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  background: var(--bg-primary);
+  padding: 3px;
+  border-radius: 50%;
+  display: block;
 }
 
 .hero-img-wrapper {
@@ -1002,39 +1033,82 @@ button {
   font-weight: bold;
 }
 
-.engine-bars {
+/* Engine Ring Meters */
+.engine-rings {
   margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  justify-content: space-around;
+  gap: 16px;
 }
 
-.engine-bar-item {
+.engine-ring-item {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  gap: 6px;
 }
 
-.eb-label {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.75rem;
-  color: var(--text-secondary);
+.ring-wrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
 }
 
-.eb-track {
+.ring-svg {
   width: 100%;
-  height: 4px;
-  background: var(--bg-primary);
-  border-radius: 2px;
-  overflow: hidden;
+  height: 100%;
+  transform: rotate(-90deg);
 }
 
-.eb-fill {
-  height: 100%;
-  background: var(--accent-gold);
-  border-radius: 2px;
-  transition: width 1.2s ease-out;
+.ring-bg {
+  fill: none;
+  stroke: rgba(255,255,255,0.07);
+  stroke-width: 6;
+}
+
+.ring-fill {
+  fill: none;
+  stroke: var(--accent-gold);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 5px rgba(212,168,84,0.7));
+  animation: ringDraw 1.4s cubic-bezier(0.4,0,0.2,1) both;
+  animation-delay: 0.3s;
+}
+
+@keyframes ringDraw {
+  from { stroke-dasharray: 0 201.1; }
+}
+
+.ring-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-pct {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  line-height: 1;
+}
+
+.ring-name {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.ring-level {
+  font-size: 0.63rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 /* ===== RESUME SECTION ===== */
@@ -2294,6 +2368,80 @@ button {
 
 /* ===== CARD SLIDESHOW ANIMATIONS ===== */
 
+/* Valkerya Card Slideshow (3 Slides - 9s) */
+.vk-slideshow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/valk_slide1.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.vk-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: vkCardFade 9s infinite;
+  transition: transform 0.6s ease;
+}
+
+/* Each slide is offset by 3s (9s / 3 slides) */
+.vk-slide-0 { background-image: url('assets/valk_slide1.png'); animation-delay: 0s; }
+.vk-slide-1 { background-image: url('assets/valk_slide2.png'); animation-delay: 3s; }
+.vk-slide-2 { background-image: url('assets/valk_slide3.png'); animation-delay: 6s; }
+
+@keyframes vkCardFade {
+  0%   { opacity: 0; transform: scale(1); }
+  5%   { opacity: 1; }
+  28%  { opacity: 1; transform: scale(1.04); }
+  33%  { opacity: 0; }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+.vk-card-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 3;
+}
+
+.vk-cdot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.vk-cdot:nth-child(1) { animation: vkDot 9s infinite 0s; }
+.vk-cdot:nth-child(2) { animation: vkDot 9s infinite 3s; }
+.vk-cdot:nth-child(3) { animation: vkDot 9s infinite 6s; }
+
+@keyframes vkDot {
+  0%   { background: var(--accent-gold); transform: scale(1.35); }
+  32%  { background: var(--accent-gold); transform: scale(1.35); }
+  33%  { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+  100% { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+}
+
+/* Pause on card hover */
+.project-card:hover .vk-slide {
+  animation-play-state: paused;
+  transform: scale(1.04);
+}
+.project-card:hover .vk-cdot {
+  animation-play-state: paused;
+}
+
 /* ShadowWalker Card Slideshow (5 Slides - 15s) */
 .sw-slideshow {
   position: absolute;
@@ -2435,17 +2583,13 @@ button {
 }
 
 .project-card:hover .sw-slide,
-.project-card:hover .zs-slide,
-.modal-panel:hover .sw-slide,
-.modal-panel:hover .zs-slide {
+.project-card:hover .zs-slide {
   animation-play-state: paused;
   transform: scale(1.04);
 }
 
 .project-card:hover .sw-cdot,
-.project-card:hover .zs-cdot,
-.modal-panel:hover .sw-cdot,
-.modal-panel:hover .zs-cdot {
+.project-card:hover .zs-cdot {
   animation-play-state: paused;
 }
 
@@ -2542,4 +2686,152 @@ button {
   color: var(--accent-gold-bright) !important;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+/* ===== PROFILE PHOTO — ABOUT SECTION ===== */
+.profile-photo-frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+}
+
+.profile-ring-outer {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-bright) 50%, var(--accent-bronze) 100%);
+  box-shadow: 0 0 32px var(--glow-color), 0 0 64px rgba(56,189,248,0.12);
+}
+
+.profile-ring-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  padding: 6px;
+  overflow: hidden;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: brightness(1.05) contrast(1.05);
+}
+
+.profile-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, var(--glow-color) 0%, transparent 65%);
+  pointer-events: none;
+  animation: glowPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  from { opacity: 0.5; }
+  to   { opacity: 1; }
+}
+
+.profile-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: 30px;
+  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-gold-bright);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* Floating orbit dots */
+.profile-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  box-shadow: 0 0 8px var(--glow-color);
+}
+.dot-1 { width: 10px; height: 10px; top: 16px; left: 50%; animation: orbitDot1 5s linear infinite; }
+.dot-2 { width: 7px;  height: 7px;  top: 50%; right: 8px; animation: orbitDot2 7s linear infinite; }
+.dot-3 { width: 6px;  height: 6px;  bottom: 30px; left: 14px; animation: orbitDot3 6s linear infinite; }
+
+@keyframes orbitDot1 {
+  0%,100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-12px); opacity: 0.6; }
+}
+@keyframes orbitDot2 {
+  0%,100% { transform: translateX(0); opacity: 1; }
+  50% { transform: translateX(10px); opacity: 0.5; }
+}
+@keyframes orbitDot3 {
+  0%,100% { transform: translate(0,0); opacity: 0.8; }
+  50% { transform: translate(8px,-8px); opacity: 0.4; }
+}
+
+/* Remove old engine ring styles (already replaced) */
+.engine-rings, .engine-ring-item, .ring-wrap, .ring-svg,
+.ring-bg, .ring-fill, .ring-label, .ring-pct, .ring-name, .ring-level {
+  display: none;
+}
+
+/* ===== CUSTOM CURSOR ===== */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+#cursorDot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-gold-bright);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: background 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 0 8px var(--glow-strong), 0 0 16px var(--glow-color);
+}
+
+#cursorRing {
+  position: fixed;
+  top: 0; left: 0;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--accent-gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease,
+              opacity 0.3s ease, background 0.3s ease;
+  opacity: 0.7;
+}
+
+/* Hover state — cursor grows on links/buttons */
+body.cursor-hover #cursorRing {
+  width: 54px;
+  height: 54px;
+  border-color: var(--accent-gold-bright);
+  background: rgba(56, 189, 248, 0.08);
+  opacity: 1;
+}
+
+body.cursor-hover #cursorDot {
+  transform: translate(-50%, -50%) scale(1.6);
 }
