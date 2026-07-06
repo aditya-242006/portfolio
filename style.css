@@ -1666,8 +1666,8 @@ button {
   position: relative;
 }
 
-.shadowwalker-bg { background-image: url('shadowwalker_hero.png'); }
-.zombie-bg { background-image: url('forest_environment.png'); } /* fallback path */
+.shadowwalker-bg { background-image: url('assets/shadowwalker_hero.png'); }
+.zombie-bg { background-image: url('assets/forest_environment.png'); } /* fallback path */
 
 .modal-tech-stack {
   display: flex;
@@ -2303,11 +2303,11 @@ button {
 }
 
 /* Each slide is offset by 3s (15s / 5 slides) */
-.sw-slide-0 { background-image: url('sw_default.png'); animation-delay: 0s; }
-.sw-slide-1 { background-image: url('sw_slide1.png'); animation-delay: 3s; }
-.sw-slide-2 { background-image: url('sw_slide2.png'); animation-delay: 6s; }
-.sw-slide-3 { background-image: url('sw_slide3.png'); animation-delay: 9s; }
-.sw-slide-4 { background-image: url('sw_slide4.png'); animation-delay: 12s; }
+.sw-slide-0 { background-image: url('assets/sw_default.png'); animation-delay: 0s; }
+.sw-slide-1 { background-image: url('assets/sw_slide1.png'); animation-delay: 3s; }
+.sw-slide-2 { background-image: url('assets/sw_slide2.png'); animation-delay: 6s; }
+.sw-slide-3 { background-image: url('assets/sw_slide3.png'); animation-delay: 9s; }
+.sw-slide-4 { background-image: url('assets/sw_slide4.png'); animation-delay: 12s; }
 
 @keyframes swCardFade {
   0%    { opacity: 0; transform: scale(1); }
@@ -2369,12 +2369,12 @@ button {
 }
 
 /* Each slide is offset by 3s (18s / 6 slides) */
-.zs-slide-0 { background-image: url('urban_arena.png'); animation-delay: 0s; }
-.zs-slide-1 { background-image: url('sova_slide1.png'); animation-delay: 3s; }
-.zs-slide-2 { background-image: url('sova_slide2.png'); animation-delay: 6s; }
-.zs-slide-3 { background-image: url('sova_slide3.png'); animation-delay: 9s; }
-.zs-slide-4 { background-image: url('sova_slide4.png'); animation-delay: 12s; }
-.zs-slide-5 { background-image: url('sova_slide5.png'); animation-delay: 15s; }
+.zs-slide-0 { background-image: url('assets/urban_arena.png'); animation-delay: 0s; }
+.zs-slide-1 { background-image: url('assets/sova_slide1.png'); animation-delay: 3s; }
+.zs-slide-2 { background-image: url('assets/sova_slide2.png'); animation-delay: 6s; }
+.zs-slide-3 { background-image: url('assets/sova_slide3.png'); animation-delay: 9s; }
+.zs-slide-4 { background-image: url('assets/sova_slide4.png'); animation-delay: 12s; }
+.zs-slide-5 { background-image: url('assets/sova_slide5.png'); animation-delay: 15s; }
 
 @keyframes zsCardFade {
   0%      { opacity: 0; transform: scale(1); }
