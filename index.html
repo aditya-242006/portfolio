@@ -11,6 +11,9 @@
 </head>
 <body>
 
+  <!-- ===== CLICK SPARK CANVAS ===== -->
+  <canvas id="clickCanvas"></canvas>
+
   <!-- ===== NAVIGATION ===== -->
   <nav id="navbar">
     <div class="nav-inner">
@@ -47,6 +50,7 @@
     <!-- Background image -->
     <div class="hero-bg">
       <img src="valkerya_hero.png" alt="VALKERYA Cinematic Landscape" class="hero-bg-img" />
+      <canvas id="rainCanvas"></canvas>
       <div class="hero-bg-overlay"></div>
       <div class="hero-scan-lines"></div>
     </div>
@@ -61,8 +65,9 @@
         Aditya<br /><span class="name-accent">Sharma</span>
       </h1>
       <div class="hero-role reveal-up">
-        <span class="role-prefix">//</span>
-        <span class="role-text" id="typingRole">Game Designer & Developer</span>
+        <span class="role-divider"></span>
+        <span class="role-text">Game Designer &amp; World Builder</span>
+        <span class="role-divider"></span>
       </div>
       <p class="hero-tagline reveal-up">
         I design and build immersive gameplay experiences using Unity and Unreal Engine 5, focusing on gameplay mechanics, terrain design, cinematic storytelling, and intuitive UI layout.
@@ -101,6 +106,10 @@
     <!-- Right side: Featured Project Visual -->
     <div class="hero-visual reveal-right">
       <a class="hero-img-wrapper" href="valkerya.html" title="Explore Valkerya Case Study" style="display:block;">
+        <div class="hero-img-corner tl"></div>
+        <div class="hero-img-corner tr"></div>
+        <div class="hero-img-corner bl"></div>
+        <div class="hero-img-corner br"></div>
         <img src="valkerya_hero.png" alt="VALKERYA Game Scene" class="hero-game-img" />
         <div class="hero-img-border"></div>
         <div class="hero-img-tag">

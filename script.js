@@ -129,3 +129,203 @@ window.addEventListener('load', () => {
     el.classList.add('visible');
   });
 });
+
+/* ===== RAIN CANVAS BACKGROUND EFFECT ===== */
+const rainCanvas = document.getElementById('rainCanvas');
+if (rainCanvas) {
+  const ctx = rainCanvas.getContext('2d');
+  let width = 0, height = 0;
+  let drops = [];
+  const maxDrops = 110;
+  let isHeroVisible = true;
+  let animationId = null;
+
+  function resizeRainCanvas() {
+    const parent = rainCanvas.parentElement;
+    if (parent) {
+      width = parent.clientWidth;
+      height = parent.clientHeight;
+      rainCanvas.width = width;
+      rainCanvas.height = height;
+    }
+  }
+
+  class RainDrop {
+    constructor() {
+      this.reset();
+      this.y = Math.random() * height; // distribute initial drops across the height
+    }
+
+    reset() {
+      this.x = Math.random() * width;
+      this.y = -20;
+      this.length = Math.random() * 25 + 15;
+      this.speed = Math.random() * 8 + 6;
+      this.slant = -1 - Math.random() * 2; // slant left-downwards
+      this.opacity = Math.random() * 0.18 + 0.05;
+      this.width = Math.random() * 1 + 0.5;
+    }
+
+    update() {
+      this.y += this.speed;
+      this.x += this.slant;
+      if (this.y > height || this.x < -20 || this.x > width + 20) {
+        this.reset();
+      }
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.moveTo(this.x, this.y);
+      ctx.lineTo(this.x + this.slant, this.y + this.length);
+      ctx.strokeStyle = `rgba(234, 225, 201, ${this.opacity})`;
+      ctx.lineWidth = this.width;
+      ctx.stroke();
+    }
+  }
+
+  function initRain() {
+    resizeRainCanvas();
+    drops = [];
+    for (let i = 0; i < maxDrops; i++) {
+      drops.push(new RainDrop());
+    }
+  }
+
+  function animateRain() {
+    if (!isHeroVisible) return;
+    ctx.clearRect(0, 0, width, height);
+    for (let i = 0; i < drops.length; i++) {
+      drops[i].update();
+      drops[i].draw();
+    }
+    animationId = requestAnimationFrame(animateRain);
+  }
+
+  // Optimize performance: only run loop when hero is visible
+  const heroSection = document.getElementById('hero');
+  if (heroSection && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isHeroVisible = entry.isIntersecting;
+        if (isHeroVisible) {
+          cancelAnimationFrame(animationId);
+          animateRain();
+        } else {
+          cancelAnimationFrame(animationId);
+        }
+      });
+    }, { threshold: 0.05 });
+    observer.observe(heroSection);
+  } else {
+    animateRain();
+  }
+
+  initRain();
+  window.addEventListener('resize', () => {
+    resizeRainCanvas();
+  });
+}
+
+/* ===== CLICK/TAP GOLD SPARK EFFECT ===== */
+const clickCanvas = document.getElementById('clickCanvas');
+if (clickCanvas) {
+  const ctx = clickCanvas.getContext('2d');
+  let sparks = [];
+  let animId = null;
+
+  function resizeClickCanvas() {
+    clickCanvas.width = window.innerWidth;
+    clickCanvas.height = window.innerHeight;
+  }
+
+  class Spark {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      const angle = Math.random() * Math.PI * 2;
+      const speed = Math.random() * 4 + 2;
+      this.vx = Math.cos(angle) * speed;
+      this.vy = Math.sin(angle) * speed - 1.5; // slight upward force
+      this.size = Math.random() * 3 + 1.5;
+      this.alpha = 1;
+      this.decay = Math.random() * 0.03 + 0.015;
+      this.color = Math.random() > 0.4 ? 'rgba(229, 190, 117, ' : 'rgba(255, 255, 255, '; // gold or white
+    }
+
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.vy += 0.08; // gravity force
+      this.vx *= 0.98; // air drag
+      this.vy *= 0.98;
+      this.alpha -= this.decay;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = this.color + this.alpha + ')';
+      ctx.shadowBlur = 6;
+      ctx.shadowColor = 'rgba(197, 160, 89, 0.8)';
+      ctx.fill();
+      ctx.shadowBlur = 0; // reset
+    }
+  }
+
+  function animateSparks() {
+    ctx.clearRect(0, 0, clickCanvas.width, clickCanvas.height);
+    sparks = sparks.filter(s => s.alpha > 0);
+    
+    if (sparks.length === 0) {
+      cancelAnimationFrame(animId);
+      animId = null;
+      ctx.clearRect(0, 0, clickCanvas.width, clickCanvas.height);
+      return;
+    }
+
+    for (let i = 0; i < sparks.length; i++) {
+      sparks[i].update();
+      sparks[i].draw();
+    }
+    animId = requestAnimationFrame(animateSparks);
+  }
+
+  window.addEventListener('click', (e) => {
+    // Spawn 16 sparks per click
+    for (let i = 0; i < 16; i++) {
+      sparks.push(new Spark(e.clientX, e.clientY));
+    }
+    if (!animId) {
+      animateSparks();
+    }
+  });
+
+  resizeClickCanvas();
+  window.addEventListener('resize', resizeClickCanvas);
+}
+
+/* ===== SCROLL PARALLAX ZOOM ===== */
+let scrollTicking = false;
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    requestAnimationFrame(() => {
+      const scrollY = window.scrollY;
+      
+      // Parallax hero background
+      const heroBg = document.querySelector('.hero-bg-img');
+      if (heroBg && scrollY < window.innerHeight) {
+        heroBg.style.transform = `translateY(${scrollY * 0.25}px) scale(${1 + scrollY * 0.0003})`;
+      }
+      
+      // Subtle shift for hero visual wrapper
+      const heroVisual = document.querySelector('.hero-game-img');
+      if (heroVisual && scrollY < window.innerHeight) {
+        heroVisual.style.transform = `translateY(${scrollY * -0.08}px)`;
+      }
+      
+      scrollTicking = false;
+    });
+    scrollTicking = true;
+  }
+}, { passive: true });

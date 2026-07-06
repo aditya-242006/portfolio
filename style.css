@@ -2428,3 +2428,98 @@ button {
 .project-card:hover .zs-cdot {
   animation-play-state: paused;
 }
+
+/* ===== CLICK SPARK & RAIN CANVASES ===== */
+#clickCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#rainCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.28;
+}
+
+/* ===== HERO FRAMING & TYPOGRAPHY ENHANCEMENTS ===== */
+.hero-img-wrapper {
+  position: relative;
+  border: 1px solid var(--accent-bronze);
+  padding: 12px;
+  background: #090a0d;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+  transition: var(--transition-slow);
+}
+
+.hero-img-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--accent-gold-dim);
+  pointer-events: none;
+}
+
+/* Gold corners for pictures/videos frame */
+.hero-img-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--accent-gold);
+  pointer-events: none;
+  z-index: 5;
+  transition: var(--transition-smooth);
+}
+
+.hero-img-corner.tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+.hero-img-corner.tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+.hero-img-corner.bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+.hero-img-corner.br { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+.hero-img-wrapper:hover .hero-img-corner {
+  width: 22px;
+  height: 22px;
+  border-color: var(--accent-gold-bright);
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 6.5vw, 5.2rem) !important;
+  line-height: 0.95 !important;
+  font-weight: 900;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+  color: var(--text-white);
+  margin-bottom: 20px;
+}
+
+.hero-role {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 32px;
+}
+
+.role-divider {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+  opacity: 0.4;
+}
+
+.role-text {
+  font-family: var(--font-display) !important;
+  font-size: 0.85rem !important;
+  font-weight: 700;
+  letter-spacing: 0.22em !important;
+  color: var(--accent-gold-bright) !important;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
